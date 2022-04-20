@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize');
-
+// const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
 // Option 3: Passing parameters separately (other dialects)
 const sequelize = new Sequelize('chien', 'root', null, {
     host: 'localhost',
