@@ -9,6 +9,7 @@ let createNewUser = async (data) => {
         try {
             let hashPasswordFromBcrypt = await hashUserPassword(data.password);
             await db.User.create({
+                // Tạo dữ liệu trong data bằng hàm create
                 email: data.email,
                 password: hashPasswordFromBcrypt,
                 firstName: data.firstName,
@@ -42,6 +43,20 @@ let hashUserPassword = (password) => {
 };
 
 // kết thúc hashPassword
+
+let getAllUser = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let users = db.User.findAll({
+                raw: true,
+            });
+            resolve(users);
+        } catch (e) {
+            reject(e);
+        }
+    });
+};
 module.exports = {
     createNewUser: createNewUser,
+    getAllUser: getAllUser,
 };
