@@ -1,5 +1,6 @@
 import express from 'express';
 import homeController from '../controllers/homeController';
+import useController from '../controllers/useController';
 
 let router = express.Router();
 
@@ -17,6 +18,8 @@ let initWebRoutes = (app) => {
     router.get('/edit-crud', homeController.getEditCRUD);
     router.post('/put-crud', homeController.putCRUD);
     router.get('/delete-crud', homeController.deleteCRUD);
+
+    router.post('/api/login', useController.handleLogin);
 
     //Đang viết Rest API
 
